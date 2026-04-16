@@ -18,7 +18,6 @@ export default function PublicVehicles() {
 
   const itemsPerPage = 3;
 
-  // ⭐ LOADING STATE (SKELETON UX - FINAL POLISH)
   if (isLoading) {
     return (
       <div className="p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

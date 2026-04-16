@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 import { Link } from "react-router-dom";
-import { notifySuccess } from "../utils/notifications"; // ⭐ ADDED
+import { notifySuccess } from "../utils/notifications";
 
 export default function Dashboard() {
   const user = useAuthStore((state) => state.user);
@@ -10,7 +10,7 @@ export default function Dashboard() {
 
   const handleLogout = () => {
     logout();
-    notifySuccess("Logged out successfully"); // ⭐ ADDED
+    notifySuccess("Logged out successfully");
     navigate("/login", { replace: true });
   };
 
@@ -48,7 +48,6 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        {/* CARD 2 - PUBLIC VEHICLES */}
         <div className="bg-white p-6 rounded-xl shadow hover:shadow-md transition">
           <h2 className="text-xl font-semibold mb-2">Public Vehicles</h2>
           <p className="text-gray-500 mb-4">
@@ -62,7 +61,6 @@ export default function Dashboard() {
           </Link>
         </div>
 
-        {/* CARD 3 - QUICK STATS (BONUS UX BOOST) */}
         <div className="bg-white p-6 rounded-xl shadow md:col-span-2">
           <h2 className="text-xl font-semibold mb-4">Quick Overview</h2>
 

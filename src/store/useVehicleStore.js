@@ -3,8 +3,7 @@ import { create } from "zustand";
 export const useVehicleStore = create((set) => ({
   vehicles: [],
 
-  services: {}, // 👈 NEW: stores services per vehicle
-
+  services: {},
   // VEHICLES
   addVehicle: (vehicle) =>
     set((state) => ({

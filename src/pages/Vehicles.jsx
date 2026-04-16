@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useVehicleStore } from "../store/useVehicleStore";
 import { Link } from "react-router-dom";
 import React from "react";
-import { notifySuccess, notifyError } from "../utils/notifications"; // ⭐ ADDED
+import { notifySuccess, notifyError } from "../utils/notifications";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { vehicleSchema } from "../validation/vehicleSchema";
@@ -45,11 +45,11 @@ export default function Vehicles() {
   const onSubmit = (data) => {
     if (editId) {
       updateVehicle(editId, data);
-      notifySuccess("Vehicle updated successfully"); // ⭐ ADDED
+      notifySuccess("Vehicle updated successfully");
       setEditId(null);
     } else {
       addVehicle(data);
-      notifySuccess("Vehicle added successfully"); // ⭐ ADDED
+      notifySuccess("Vehicle added successfully");
     }
 
     reset();
@@ -67,7 +67,7 @@ export default function Vehicles() {
 
   const handleDeleteVehicle = (id) => {
     deleteVehicle(id);
-    notifySuccess("Vehicle deleted"); // ⭐ ADDED
+    notifySuccess("Vehicle deleted");
   };
 
   // =========================
@@ -77,7 +77,7 @@ export default function Vehicles() {
     e.preventDefault();
 
     if (!desc || !price) {
-      notifyError("Fill all service fields"); // ⭐ ADDED
+      notifyError("Fill all service fields");
       return;
     }
 
@@ -93,7 +93,7 @@ export default function Vehicles() {
         },
       }));
 
-      notifySuccess("Service updated"); // ⭐ ADDED
+      notifySuccess("Service updated");
       setServiceEditId(null);
     } else {
       addService(vehicleId, {
@@ -103,7 +103,7 @@ export default function Vehicles() {
         date: new Date().toLocaleDateString(),
       });
 
-      notifySuccess("Service added"); // ⭐ ADDED
+      notifySuccess("Service added");
     }
 
     setDesc("");
@@ -111,7 +111,6 @@ export default function Vehicles() {
     setType("regular");
   };
 
-  // ⭐ ADDED (missing in your original code)
   const handleServiceEdit = (service) => {
     setServiceEditId(service.id);
     setDesc(service.desc);
@@ -121,7 +120,7 @@ export default function Vehicles() {
 
   const handleServiceDelete = (vehicleId, serviceId) => {
     deleteService(vehicleId, serviceId);
-    notifySuccess("Service deleted"); // ⭐ ADDED
+    notifySuccess("Service deleted");
   };
 
   return (
